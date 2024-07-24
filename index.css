@@ -1,0 +1,204 @@
+body {
+    margin: 0;
+}
+
+h1,
+p {
+    margin: 0;
+}
+
+.carousel-container {
+    background-color: red;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.time {
+    background-color: pink;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    z-index: 10;
+    top: 0;
+}
+
+.previous .time {
+    animation: decreaseTimeWidth 5s forwards;
+}
+
+@keyframes decreaseTimeWidth {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+.carousel-item {
+    background-color: pink;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-item:nth-child(1) {
+    z-index: 1;
+}
+
+.next .carousel-item:nth-child(1) {
+    animation: showImage 5s forwards;
+}
+
+@keyframes showImage {
+    0% {
+        bottom: 8%;
+        width: 160px;
+        height: 200px;
+        left: 50%;
+        border-radius: 20px;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: 0%;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        border-radius: 0px;
+        opacity: 1;
+    }
+}
+
+.description {
+    background-color: yellow;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 50%;
+}
+
+.slider {
+    background-color: green;
+    position: absolute;
+    z-index: 10;
+    bottom: 8%;
+    left: 50%;
+    display: flex;
+    gap: 30px;
+    width: 50%;
+}
+
+.slider-item {
+    background-color: blue;
+    width: 160px;
+    height: 200px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+
+
+.slider-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.next .slider-item:nth-last-child(1) {
+
+    animation: showSlider 5s forwards;
+}
+
+.next .slider {
+    animation: moveRight 5s forwards;
+}
+
+@keyframes showSlider {
+    0% {
+        width: 0px;
+    }
+
+    100% {
+        width: 160px;
+    }
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translateX(160px);
+    }
+
+    100% {
+        transform: translateX(0);
+
+    }
+}
+
+
+
+.arrow-container {
+    background-color: purple;
+    position: absolute;
+    z-index: 12;
+    bottom: 20%;
+    left: 30%;
+    display: flex;
+    gap: 10px;
+}
+
+.arrow-button {
+    background-color: orange;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.previous .carousel-item:nth-child(2) {
+    z-index: 2;
+    animation: hideImage 5s forwards;
+}
+
+@keyframes hideImage {
+    0% {
+        width: 100%;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        border-radius: 0px;
+        opacity: 1;
+    }
+
+    100% {
+        width: 160px;
+        height: 200px;
+        left: 50%;
+        bottom: 8%;
+        border-radius: 20px;
+        opacity: 0;
+    }
+}
+
+.previous .slider-item:nth-child(1) {
+    animation: showSlider 5s forwards;
+}
+
+@keyframes showSlider {
+    0% {
+        width: 0px;
+    }
+
+    100% {
+        width: 160px;
+    }
+}
