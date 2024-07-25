@@ -26,7 +26,7 @@ p {
 
 .next .time,
 .previous .time {
-    animation: decreaseTimeWidth 5s forwards;
+    animation: decreaseTimeWidth 2s forwards;
 }
 
 @keyframes decreaseTimeWidth {
@@ -60,7 +60,7 @@ p {
 }
 
 .next .carousel-item:nth-child(1) {
-    animation: showImage 5s forwards;
+    animation: showImage 2s forwards;
 }
 
 @keyframes showImage {
@@ -119,11 +119,11 @@ p {
 
 .next .slider-item:nth-last-child(1) {
 
-    animation: showSlider 5s forwards;
+    animation: showSlider 2s forwards;
 }
 
 .next .slider {
-    animation: moveRight 5s forwards;
+    animation: moveRight 2s forwards;
 }
 
 @keyframes showSlider {
@@ -149,25 +149,9 @@ p {
 
 
 
-.arrow-container {
-    background-color: purple;
-    position: absolute;
-    z-index: 12;
-    bottom: 20%;
-    left: 30%;
-    display: flex;
-    gap: 10px;
-}
-
-.arrow-button {
-    background-color: orange;
-    padding: 10px;
-    border-radius: 50%;
-}
-
 .previous .carousel-item:nth-child(2) {
     z-index: 2;
-    animation: hideImage 5s forwards;
+    animation: hideImage 2s forwards;
 }
 
 @keyframes hideImage {
@@ -191,7 +175,7 @@ p {
 }
 
 .previous .slider-item:nth-child(1) {
-    animation: showSlider 5s forwards;
+    animation: showSlider 2s forwards;
 }
 
 @keyframes showSlider {
@@ -202,6 +186,43 @@ p {
     100% {
         width: 160px;
     }
+}
+
+
+
+.arrow-container {
+    position: absolute;
+    z-index: 12;
+    bottom: 20%;
+    left: 30%;
+    display: flex;
+    gap: 10px;
+}
+
+.arrow-button {
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.arrow-button:hover {
+    background-color: white;
+}
+
+.arrow-button span {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bolder;
+    transition: all 0.3s ease;
+}
+
+
+
+.arrow-button:hover span {
+    color: #3a3b3c;
 }
 
 .next .arrow-button,

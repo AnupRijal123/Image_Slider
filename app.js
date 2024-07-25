@@ -32,7 +32,7 @@ const changeCarouselImage = function (buttonName) {
         mainContainerDom.classList.add('next');
         setTimeout(() => {
             mainContainerDom.classList.remove('next');
-        }, 5000);
+        }, 2000);
 
     }
     if (buttonName === 'previousButton') {
@@ -44,7 +44,7 @@ const changeCarouselImage = function (buttonName) {
         mainContainerDom.classList.add('previous');
         setTimeout(() => {
             mainContainerDom.classList.remove('previous');
-        }, 5000);
+        }, 2000);
     }
 
 
