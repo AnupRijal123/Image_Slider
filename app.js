@@ -4,6 +4,10 @@ const mainContainerDom = document.querySelector('.main-container ')
 const sliderDom = document.querySelector('.slider');
 
 
+setTimeout(() => {
+    nextButtonDom.click();
+}, 7000);
+
 nextButtonDom.onclick = function () {
     changeCarouselImage('nextButton')
 }
@@ -16,7 +20,6 @@ previousButtonDom.onclick = function () {
 
 
 const changeCarouselImage = function (buttonName) {
-    console.log(buttonName);
 
     let carouselContainerDom = document.querySelector('.carousel-container');
 
@@ -30,11 +33,8 @@ const changeCarouselImage = function (buttonName) {
         sliderDom.appendChild(sliderItemDoms[0]);
 
         mainContainerDom.classList.add('next');
-        setTimeout(() => {
-            mainContainerDom.classList.remove('next');
-        }, 2000);
-
     }
+
     if (buttonName === 'previousButton') {
         const lastPosition = carouselItemDoms.length - 1;
         carouselContainerDom.prepend(carouselItemDoms[lastPosition]);
@@ -42,11 +42,10 @@ const changeCarouselImage = function (buttonName) {
         sliderDom.prepend(sliderItemDoms[lastPosition]);
 
         mainContainerDom.classList.add('previous');
-        setTimeout(() => {
-            mainContainerDom.classList.remove('previous');
-        }, 2000);
     }
 
-
-
+    setTimeout(() => {
+        mainContainerDom.classList.remove('next');
+        mainContainerDom.classList.remove('previous');
+    }, 1000);
 }

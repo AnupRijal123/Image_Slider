@@ -1,14 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
     margin: 0;
 }
 
 h1,
+h2,
+h3,
 p {
     margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.heading-text {
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #04d9ff;
+}
+
+h1 {
+    font-size: 40px;
+    color: #ffffff;
+}
+
+p {
+    color: #ffffff;
+    font-size: 14px;
 }
 
 .main-container {
-    background-color: red;
     width: 100vw;
     height: 100vh;
     position: relative;
@@ -16,7 +40,7 @@ p {
 }
 
 .time {
-    background-color: pink;
+    background-color: #04d9ff;
     position: absolute;
     width: 100%;
     height: 5px;
@@ -26,7 +50,7 @@ p {
 
 .next .time,
 .previous .time {
-    animation: decreaseTimeWidth 2s forwards;
+    animation: decreaseTimeWidth 1s forwards;
 }
 
 @keyframes decreaseTimeWidth {
@@ -42,7 +66,6 @@ p {
 
 
 .carousel-item {
-    background-color: pink;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -53,6 +76,7 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: brightness(80%);
 }
 
 .carousel-item:nth-child(1) {
@@ -60,7 +84,7 @@ p {
 }
 
 .next .carousel-item:nth-child(1) {
-    animation: showImage 2s forwards;
+    animation: showImage 1s forwards;
 }
 
 @keyframes showImage {
@@ -82,15 +106,93 @@ p {
 }
 
 .description {
-    background-color: yellow;
     position: absolute;
     top: 20%;
     left: 10%;
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.platform-div {
+    display: flex;
+    gap: 5px;
+    padding: 5px 10px;
+}
+
+.platform-box {
+    padding: 2px 4px;
+    border: 1px solid #ffffff;
+    border-radius: 3px;
+}
+
+.platform-box p {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.button-div {
+    display: flex;
+    gap: 10px;
+    padding: 20px 0px;
+    animation: slowLoadButtons 12s forwards;
+}
+
+
+.carousel-item:nth-child(1) .description .heading-div,
+.carousel-item:nth-child(1) .description .paragraph-div,
+.carousel-item:nth-child(1) .description .button-div {
+    opacity: 0;
+    animation: slowLoad 1s forwards;
+    animation-delay: 2s;
+    /*animation will start after 2s */
+
+}
+
+@keyframes slowLoad {
+    0% {
+        transform: translateY(60px);
+        filter: blur(20px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.carousel-item:nth-child(1) .description .paragraph-div {
+    animation-delay: 2.5s;
+}
+
+.carousel-item:nth-child(1) .description .button-div {
+    animation-delay: 2.7s;
+}
+
+
+.button-div button {
+    background-color: rgba(17, 17, 17, 0.5);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.button-div button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #000000;
 }
 
 .slider {
-    background-color: green;
     position: absolute;
     z-index: 10;
     bottom: 8%;
@@ -101,7 +203,6 @@ p {
 }
 
 .slider-item {
-    background-color: blue;
     width: 160px;
     height: 200px;
     border-radius: 20px;
@@ -119,11 +220,11 @@ p {
 
 .next .slider-item:nth-last-child(1) {
 
-    animation: showSlider 2s forwards;
+    animation: showSlider 1s forwards;
 }
 
 .next .slider {
-    animation: moveRight 2s forwards;
+    animation: moveRight 1s forwards;
 }
 
 @keyframes showSlider {
@@ -151,8 +252,10 @@ p {
 
 .previous .carousel-item:nth-child(2) {
     z-index: 2;
-    animation: hideImage 2s forwards;
+    animation: hideImage 1s forwards;
+    overflow: hidden;
 }
+
 
 @keyframes hideImage {
     0% {
@@ -170,12 +273,12 @@ p {
         left: 50%;
         bottom: 8%;
         border-radius: 20px;
-        opacity: 0;
+        opacity: 0.5;
     }
 }
 
 .previous .slider-item:nth-child(1) {
-    animation: showSlider 2s forwards;
+    animation: showSlider 1s forwards;
 }
 
 @keyframes showSlider {
@@ -200,7 +303,7 @@ p {
 }
 
 .arrow-button {
-    background-color: transparent;
+    background-color: rgba(127, 127, 172, 0.4);
     backdrop-filter: blur(20px);
     padding: 5px 10px;
     border-radius: 50%;
@@ -209,7 +312,7 @@ p {
 }
 
 .arrow-button:hover {
-    background-color: white;
+    background-color: #ffffff;
 }
 
 .arrow-button span {
@@ -228,4 +331,22 @@ p {
 .next .arrow-button,
 .previous .arrow-button {
     pointer-events: none;
+}
+
+@media only screen and (max-width:780px) {
+    .description {
+        top: 10%;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .description {
+        left: 5%;
+        width: 90%;
+        gap: 5px;
+    }
+
+    .button-div {
+        padding: 10px;
+    }
 }
