@@ -7,7 +7,7 @@ p {
     margin: 0;
 }
 
-.carousel-container {
+.main-container {
     background-color: red;
     width: 100vw;
     height: 100vh;
@@ -24,6 +24,7 @@ p {
     top: 0;
 }
 
+.next .time,
 .previous .time {
     animation: decreaseTimeWidth 5s forwards;
 }
@@ -37,6 +38,8 @@ p {
         width: 0;
     }
 }
+
+
 
 .carousel-item {
     background-color: pink;
@@ -67,7 +70,6 @@ p {
         height: 200px;
         left: 50%;
         border-radius: 20px;
-        opacity: 0;
     }
 
     100% {
@@ -76,7 +78,6 @@ p {
         height: 100%;
         left: 0;
         border-radius: 0px;
-        opacity: 1;
     }
 }
 
@@ -201,4 +202,9 @@ p {
     100% {
         width: 160px;
     }
+}
+
+.next .arrow-button,
+.previous .arrow-button {
+    pointer-events: none;
 }
